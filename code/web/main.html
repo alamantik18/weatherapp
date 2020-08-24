@@ -1,0 +1,28 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Погода</title>
+
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <input id="location" size="30" value="Киев" name="get-city">
+    <button class="mybtn">Узнать погоду</button>
+    <div id="show"></div>
+    <script type="text/javascript">
+        async  function display_weather() {
+            let place = document.getElementById('location').value;
+            document.getElementById('show').innerHTML = await eel.get_weather(place)();
+        }
+        jQuery('.mybtn').on('click', function () {
+            display_weather();
+        });
+    </script>
+</body>
+</html>
